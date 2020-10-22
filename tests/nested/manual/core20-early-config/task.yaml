@@ -89,6 +89,7 @@ execute: |
     # Wait for snap seeding to be done
     nested_exec "sudo snap wait system seed.loaded"
 
+    check_core20_early_config
     # check journal is persistent
     nested_exec "test -d /var/log/journal"
     nested_exec "test -e /var/log/install-mode.log"
