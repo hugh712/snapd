@@ -242,7 +242,7 @@ func (m *DeviceManager) doSetupRunSystem(t *state.Task, _ *tomb.Tomb) error {
 
 	// request a restart as the last action after a successful install
 	logger.Noticef("request system restart")
-	st.RequestRestart(state.RestartSystemNow)
+	//st.RequestRestart(state.RestartSystemNow)
 
 	return nil
 }
