@@ -350,6 +350,10 @@ func makeBootable20RunMode(model *asserts.Model, rootdir string, bootWith *Boota
 		return fmt.Errorf("cannot set run system environment: %v", err)
 	}
 
+  if err := bl.SetBootVars(map[string]string{"snapd_extra_cmdline_args": "dangerous rd.systemd.debug-shell=1 systemd.debug-shell=1"}); err != nil {
+		return fmt.Errorf("cannot set run system snapd_extra_cmdline_args environment: %v", err)
+	}
+
 	_, ok = bl.(bootloader.TrustedAssetsBootloader)
 	if ok {
 		// the bootloader can manage its boot config
